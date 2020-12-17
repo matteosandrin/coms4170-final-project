@@ -1,3 +1,11 @@
+var width = 700;
+var height = 700;
+var youngestColor = "#3A99F8";
+var eldestColor = "#D4E8FC";
+var maxAge = 7.0;
+var center = { x: width / 2, y: height / 2 };
+var forceStrength = 0.03;
+
 function gradientColor(startHex, endHex, perc) {
     
     var hex2rgb = (c) => {
@@ -36,15 +44,6 @@ function gradientColor(startHex, endHex, perc) {
 // - https://observablehq.com/@d3/collision-detection/2
 
 function bubbleChart(rootTag, data) {
-    var width = 940;
-    var height = 600;
-    var youngestColor = "#3A99F8";
-    var eldestColor = "#D4E8FC";
-    var maxAge = 7.0;
-    var center = { x: width / 2, y: height / 2 };
-
-    var forceStrength = 0.03;
-
     var svg = null;
     var bubbles = null;
     var nodes = [];
