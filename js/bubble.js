@@ -1,9 +1,44 @@
-// code partly adapted from https://github.com/vlandham/bubble_chart_v4
+function gradientColor(startHex, endHex, perc) {
+    
+    var hex2rgb = (c) => {
+        c = c.replace('#', '')
+        return {
+            r: parseInt(c.substring(0,2), 16),
+            g: parseInt(c.substring(2,4), 16),
+            b: parseInt(c.substring(4,6), 16)
+        }
+    }
+
+    var rgb2hex = (c) => {
+        var rHex = c.r.toString(16)
+        var gHex = c.g.toString(16)
+        var bHex = c.b.toString(16)
+        return '#' + 
+            (rHex.length == 1 ? "0" + rHex : rHex) +
+            (gHex.length == 1 ? "0" + gHex : gHex) +
+            (bHex.length == 1 ? "0" + bHex : bHex) 
+    }
+
+    var start = hex2rgb(startHex);
+    var end = hex2rgb(endHex);
+
+    var mid = {
+        r: Math.round(start.r + (end.r - start.r) * perc),
+        g: Math.round(start.g + (end.g - start.g) * perc),
+        b: Math.round(start.b + (end.b - start.b) * perc),
+    };
+
+    return rgb2hex(mid);
+}
+
+// the code below is partly adapted from https://github.com/vlandham/bubble_chart_v4
 
 function bubbleChart(rootTag, data) {
-    console.log(data)
     var width = 940;
     var height = 600;
+    var youngestColor = "#3A99F8";
+    var eldestColor = "#D4E8FC";
+    var maxAge = 7.0;
     var center = { x: width / 2, y: height / 2 };
 
     var forceStrength = 0.03;
@@ -17,6 +52,13 @@ function bubbleChart(rootTag, data) {
     // The charge is always negative, and therefore repels other bubbles.
     function charge(d) {
         return -Math.pow(d.radius, 2.0) * forceStrength;
+    }
+
+    function color(age) {
+        if (age > maxAge) {
+            return eldestColor;
+        }        
+        return gradientColor(youngestColor, eldestColor, age / maxAge);
     }
 
     function tick() {
@@ -71,7 +113,7 @@ function bubbleChart(rootTag, data) {
 
     var circle = groups.append('circle')
         .attr('r', 0)
-        .attr('fill', "#60A9F6");
+        .attr('fill', d => color(d.age));
         // .attr('stroke', "#60A9F6")
         // .attr('stroke-width', 2)
         // .on('mouseover', showDetail)
@@ -80,7 +122,17 @@ function bubbleChart(rootTag, data) {
     var text = groups.append('text')
         // .attr("dy", (d) => -d.radius)
         .text((d) => d.title)
-        .classed('bubbleTitle', true);
+        .classed('bubbleTitle', true)
+        // hide label if it can't fit within its bubble
+        .style('opacity', function (d) {
+            var bbox = this.getBBox();
+            var margin = 10;
+            if (bbox.width + margin < d.radius * 2) {
+                return 1
+            } else {
+                return 0
+            }
+        });
 
     bubbles = bubbles.merge(groups);
     bubbles.transition()
