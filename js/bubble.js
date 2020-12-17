@@ -21,8 +21,7 @@ function bubbleChart(rootTag, data) {
 
     function tick() {
         bubbles
-            .attr('cx', d => d.x)
-            .attr('cy', d => d.y);
+            .attr('transform', (d) => 'translate('+ d.x + ',' + d.y + ')')
     }
 
     // create force layout
@@ -30,6 +29,7 @@ function bubbleChart(rootTag, data) {
         .velocityDecay(0.2)
         .force('x', d3.forceX().strength(forceStrength).x(center.x))
         .force('y', d3.forceY().strength(forceStrength).y(center.y))
+        .force("collide", d3.forceCollide().radius(d => d.radius + 1).iterations(3))
         .force('charge', d3.forceManyBody().strength(charge))
         .on('tick', tick);
     simulation.stop();
@@ -65,8 +65,11 @@ function bubbleChart(rootTag, data) {
     bubbles = svg.selectAll('.bubble')
         .data(nodes, (n) => n.id);
     
-    var bubblesE = bubbles.enter().append('circle')
-        .classed('bubble', true)
+    var groups = bubbles.enter()
+        .append('g')
+        .classed('bubble', true);
+
+    var circle = groups.append('circle')
         .attr('r', 0)
         .attr('fill', "#60A9F6");
         // .attr('stroke', "#60A9F6")
@@ -74,10 +77,17 @@ function bubbleChart(rootTag, data) {
         // .on('mouseover', showDetail)
         // .on('mouseout', hideDetail);
 
-    bubbles = bubbles.merge(bubblesE);
+    var text = groups.append('text')
+        // .attr("dy", (d) => -d.radius)
+        .text((d) => d.title)
+        .classed('bubbleTitle', true);
+
+    bubbles = bubbles.merge(groups);
     bubbles.transition()
-        .duration(2000)
-        .attr('r', (d) => d.radius);
+        .ease(d3.easeSin)
+        .duration(1500)
+        .selectAll('circle')
+            .attr('r', (d) => d.radius);
 
     simulation.nodes(nodes);
     simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
