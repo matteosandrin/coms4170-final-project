@@ -31,7 +31,9 @@ function gradientColor(startHex, endHex, perc) {
     return rgb2hex(mid);
 }
 
-// the code below is partly adapted from https://github.com/vlandham/bubble_chart_v4
+// the code below is partly adapted from:
+// - https://github.com/vlandham/bubble_chart_v4
+// - https://observablehq.com/@d3/collision-detection/2
 
 function bubbleChart(rootTag, data) {
     var width = 940;
@@ -91,8 +93,8 @@ function bubbleChart(rootTag, data) {
             title: topic.title,
             age: topic.age,
             radius: radiusScale(topic.size),
-            x: Math.random() * 900,
-            y: Math.random() * 800,
+            x: Math.random() * width,
+            y: Math.random() * height,
         })
     );
 

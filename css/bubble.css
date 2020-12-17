@@ -1,6 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Actor&display=swap');
+
+html {
+    font-size: 12px;
+    font-family: Roboto;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    width: 100%;
+    padding: 0rem 3rem;
+    color: #093068;
+    font-family: 'Actor';
+}
+
+.title {
+    font-size: 3.5rem;
+    line-height: 7rem;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 3rem;
+    width: 100%;
+    text-align: center;
+}
+
 .bubbleTitle {
     fill: white;
+    font-size: 1.5rem;
     font-family: Roboto;
     text-anchor: middle;
     alignment-baseline: middle;
+}
+
+#vis {
+    width: 900px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
