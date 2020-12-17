@@ -1,0 +1,44 @@
+{
+    "topics" : [
+        {
+            "title" : "COVID-19",
+            "size" : 100.0,
+            "age" : 0
+        },
+        {
+            "title" : "Housing",
+            "size" : 95.0,
+            "age" : 0
+        },
+        {
+            "title" : "Graduation",
+            "size" : 75.0,
+            "age" : 3
+        },
+        {
+            "title" : "Favorite Songs",
+            "size" : 75.0,
+            "age" : 2
+        },
+        {
+            "title" : "Prezbo",
+            "size" : 70.0,
+            "age" : 3
+        },
+        {
+            "title" : "P/D/F",
+            "size" : 50.0,
+            "age" : 4
+        },
+        {
+            "title" : "P/D/F",
+            "size" : 50.0,
+            "age" : 4
+        },
+        {
+            "title" : "Pets",
+            "size" : 30.0,
+            "age" : 4
+        }
+    ]
+}
