@@ -44,6 +44,7 @@ function gradientColor(startHex, endHex, perc) {
 // - https://observablehq.com/@d3/collision-detection/2
 
 function bubbleChart(rootTag, data) {
+
     var svg = null;
     var bubbles = null;
     var nodes = [];
@@ -72,7 +73,7 @@ function bubbleChart(rootTag, data) {
         .velocityDecay(0.2)
         .force('x', d3.forceX().strength(forceStrength).x(center.x))
         .force('y', d3.forceY().strength(forceStrength).y(center.y))
-        .force("collide", d3.forceCollide().radius(d => d.radius + 1).iterations(3))
+        .force('collide', d3.forceCollide().radius(d => d.radius + 5).iterations(3))
         .force('charge', d3.forceManyBody().strength(charge))
         .on('tick', tick);
     simulation.stop();
@@ -110,15 +111,15 @@ function bubbleChart(rootTag, data) {
     
     var groups = bubbles.enter()
         .append('g')
-        .classed('bubble', true);
+        .classed('bubble', true)
+        .on('mouseover', showDetail)
+        .on('mouseout', hideDetail);
 
     var circle = groups.append('circle')
         .attr('r', 0)
         .attr('fill', d => color(d.age));
         // .attr('stroke', "#60A9F6")
         // .attr('stroke-width', 2)
-        // .on('mouseover', showDetail)
-        // .on('mouseout', hideDetail);
 
     var text = groups.append('text')
         // .attr("dy", (d) => -d.radius)
@@ -147,6 +148,32 @@ function bubbleChart(rootTag, data) {
     simulation.alpha(1).restart()
 
     return null;
+}
+
+function showDetail(d) {
+    d3.select(this).selectAll('circle')
+        .transition()
+        .ease(d3.easeSin)
+        .duration(200)
+        .attr('r', d.radius + 8);
+    d3.select(this).selectAll('text')
+        .transition()
+        .ease(d3.easeSin)
+        .duration(200)
+        .attr('transform', 'scale(1.15)');
+}
+
+function hideDetail(d) {
+    d3.select(this).selectAll('circle')
+        .transition()
+        .ease(d3.easeSin)
+        .duration(200)
+        .attr('r', d.radius);
+    d3.select(this).selectAll('text')
+        .transition()
+        .ease(d3.easeSin)
+        .duration(200)
+        .attr('transform', 'scale(1.0)');
 }
 
 var chart = null;
