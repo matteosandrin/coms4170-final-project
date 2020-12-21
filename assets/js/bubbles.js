@@ -128,7 +128,8 @@ function bubbleChart(rootTag, data) {
         .append('g')
         .classed('bubble', true)
         .on('click', d => {
-            window.location.href = '/topic.html?id=' + d.id
+            var href = window.location.href;
+            window.location.href = href.substring(0, href.lastIndexOf('/')) + '/topic.html?id=' + d.id
         })
         .on('mouseover', showDetail)
         .on('mouseout', hideDetail);
@@ -205,3 +206,7 @@ function display(error, data) {
 }
 
 d3.json('data.json', display)
+
+$(document).ready(() => {
+    $('.title').attr('href', window.location.href)
+});
