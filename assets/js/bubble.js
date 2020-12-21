@@ -94,7 +94,7 @@ function bubbleChart(rootTag, data) {
     simulation.stop();
 
     // create nodes
-    var topics = data.topics;
+    var topics = Object.values(data.topics);
     var maxSize = d3.max(topics, (d) => d.size);
     var minSize = d3.min(topics, (d) => d.size);
 

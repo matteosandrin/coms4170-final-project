@@ -124,7 +124,7 @@ body, .container {
     font-size: 1rem;
 }
 
-.add-topic {
+.lg-button {
     font-size: 1.5rem;
     font-family: inherit;
     border: 0;
@@ -134,9 +134,11 @@ body, .container {
     background: linear-gradient(92.68deg, #7CB8F7 0%, #2A8BF2 100%);
     box-shadow: 0.5rem 0.5rem 2rem rgba(42, 139, 242, 0.15), 0.5rem 0.5rem 2rem rgba(42, 139, 242, 0.05), 1rem 0.5rem 2rem rgba(42, 139, 242, 0.15);
     border-radius: 0.5rem;
+    padding: 1rem 2rem;
+}
 
+.add-topic {
     position: fixed;
     right: 3rem;
     bottom: 2rem;
-    padding: 1rem 2rem;
 }
