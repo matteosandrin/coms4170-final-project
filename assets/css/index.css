@@ -53,7 +53,8 @@ body {
 }
 
 .login-column {
-  padding: 6rem 15rem;
+  margin: 6rem auto;
+  width: min(50%, 32rem);
 }
 
 .login_title {
