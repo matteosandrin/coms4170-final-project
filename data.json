@@ -63,49 +63,49 @@
         {
             "id" : "6978140662209958",
             "title" : "Tuition Strike",
-            "size" : 20.0,
+            "size" : 45.0,
             "age" : 7
         },
         {
             "id" : "6111880850646881",
             "title" : "Dining Halls",
-            "size" : 15.0,
+            "size" : 40.0,
             "age" : 7
         },
         {
             "id" : "4967228734755117",
-            "title" : "Butler Library",
+            "title" : "Butler",
             "size" : 15.0,
             "age" : 3
         },
         {
             "id" : "9669180034768960",
-            "title" : "Avery Library",
-            "size" : 10.0,
+            "title" : "Avery",
+            "size" : 20.0,
             "age" : 4
         },
         {
             "id" : "5656246721263068",
             "title" : "Coby",
-            "size" : 5.0,
+            "size" : 10.0,
             "age" : 1
         },
         {
             "id" : "4226983872312900",
             "title" : "Tamanna",
-            "size" : 5.0,
+            "size" : 25.0,
             "age" : 1
         },
         {
             "id" : "2528932290161808",
             "title" : "Michelle",
-            "size" : 5.0,
+            "size" : 25.0,
             "age" : 1
         },
         {
             "id" : "0893833510429893",
             "title" : "Matteo",
-            "size" : 5.0,
+            "size" : 15.0,
             "age" : 1
         }
     ]

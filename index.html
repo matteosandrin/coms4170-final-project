@@ -7,7 +7,11 @@
   <body>
     <div class="container">
       <div class="header">
-        <span class="title">Columbia Convene</span>
+        <a class="title" href="/">Columbia Convene</a>
+        <div class="profile">
+          <img class="profile-img" src="assets/img/profile_05.png"/>
+          <span class="profile-name">Evelyn Stein</span>
+        </div>
       </div>
       <div class="tagline">
         A snapshot of conversations occurring on Columbia's virtual campus
@@ -15,7 +19,10 @@
       <div id="vis"></div>
       <div class="key">
         <div class="key-label">Decay Key</div>
+        <div class="key-content"></div>
+        <div class="key-info">After 7 days, bubbles will disappear</div>
       </div>
+      <button class="add-topic">+ Add New Topic</button>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>

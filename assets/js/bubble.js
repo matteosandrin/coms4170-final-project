@@ -1,7 +1,9 @@
-var width = 700;
+var width  = 700;
 var height = 700;
-var youngestColor = "#3A99F8";
-var eldestColor = "#D4E8FC";
+var youngestColor     = "#3A99F8";
+var eldestColor       = "#D4E8FC";
+var youngestTextColor = "#FFFFFF";
+var eldestTextColor   = "#3A99F8";
 var maxAge = 7.0;
 var center = { x: width / 2, y: height / 2 };
 var forceStrength = 0.03;
@@ -63,6 +65,14 @@ function bubbleChart(rootTag, data) {
         return gradientColor(youngestColor, eldestColor, age / maxAge);
     }
 
+    function textColor(age) {
+        if (age > maxAge * (2/3)) {
+            return eldestTextColor;
+        } else {
+            return youngestTextColor;
+        }  
+    }
+
     function tick() {
         bubbles
             .attr('transform', (d) => {
@@ -108,10 +118,8 @@ function bubbleChart(rootTag, data) {
     // create svg
     svg = d3.select(rootTag)
         .append('svg')
-        // .attr('width', width)
-        // .attr('height', height)
         .attr('viewBox', '0 0 ' + width + ' ' + height)
-        .attr('preserveAspectRatio', 'xMinYMin meet');
+        .attr('preserveAspectRatio', 'xMidYMin meet');
 
     bubbles = svg.selectAll('.bubble')
         .data(nodes, (n) => n.id);
@@ -119,6 +127,9 @@ function bubbleChart(rootTag, data) {
     var groups = bubbles.enter()
         .append('g')
         .classed('bubble', true)
+        .on('click', d => {
+            window.location.href = '/topic.html?id=' + d.id
+        })
         .on('mouseover', showDetail)
         .on('mouseout', hideDetail);
 
@@ -132,6 +143,7 @@ function bubbleChart(rootTag, data) {
         // .attr("dy", (d) => -d.radius)
         .text((d) => d.title)
         .classed('bubbleTitle', true)
+        .style('fill', d => textColor(d.age))
         // hide label if it can't fit within its bubble
         .style('opacity', function (d) {
             var bbox = this.getBBox();
