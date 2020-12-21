@@ -65,7 +65,12 @@ function bubbleChart(rootTag, data) {
 
     function tick() {
         bubbles
-            .attr('transform', (d) => 'translate('+ d.x + ',' + d.y + ')')
+            .attr('transform', (d) => {
+                // make sure bubbles fit within the viewport
+                d.x = Math.max(d.radius, Math.min(width - d.radius, d.x))
+                d.y = Math.max(d.radius, Math.min(height - d.radius, d.y))
+                return 'translate('+ d.x + ',' + d.y + ')'
+            })
     }
 
     // create force layout
@@ -103,8 +108,10 @@ function bubbleChart(rootTag, data) {
     // create svg
     svg = d3.select(rootTag)
         .append('svg')
-        .attr('width', width)
-        .attr('height', height);
+        // .attr('width', width)
+        // .attr('height', height)
+        .attr('viewBox', '0 0 ' + width + ' ' + height)
+        .attr('preserveAspectRatio', 'xMinYMin meet');
 
     bubbles = svg.selectAll('.bubble')
         .data(nodes, (n) => n.id);
