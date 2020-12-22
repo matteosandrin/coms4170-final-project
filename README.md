@@ -1,6 +1,10 @@
 # Columbia Convene
 
-To run this project, first run a local web server in the repo's root directory:
+This project is hosted live at [https://matteosandrin.github.io/coms4170-final-project/](https://matteosandrin.github.io/coms4170-final-project/)  
+
+## Run Locally
+
+If you'd like to run the project locally instead, start a local web server in the repo's root directory:
 
 ```
 python3 -m http.server 8080
