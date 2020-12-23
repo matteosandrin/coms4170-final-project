@@ -1,26 +1,3 @@
-html {
-  font-size: 12px;
-}
-
-body {
-  margin: 0;
-  overflow: hidden;
-}
-
-.header {
-  width: 100%;
-  padding: 0rem 3rem;
-  color: #093068;
-  font-family: 'Actor';
-}
-
-.header > a {
-  font-size: 3.5rem;
-  line-height: 7rem;
-  color: inherit;
-  text-decoration: none;
-}
-
 .grid-container {
   display: grid;
   grid-template-columns: 50% 50%;

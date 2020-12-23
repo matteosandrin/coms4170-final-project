@@ -129,7 +129,7 @@ function bubbleChart(rootTag, data) {
         .classed('bubble', true)
         .on('click', d => {
             var href = window.location.href;
-            window.location.href = href.substring(0, href.lastIndexOf('/')) + '/topic.html?id=' + d.id
+            window.location.href = href.substring(0, href.lastIndexOf('/')) + '/conversation.html?id=' + d.id
         })
         .on('mouseover', showDetail)
         .on('mouseout', hideDetail);

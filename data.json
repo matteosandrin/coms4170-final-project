@@ -3,8 +3,37 @@
         "8322283237678612" : {
             "id" : "8322283237678612",
             "title" : "COVID-19",
+            "prompt" : "What are your thoughts on the United States' recent COVID policies?",
             "size" : 100.0,
-            "age" : 0
+            "age" : 0,
+            "users" : [
+                "3617142990909095",
+                "1104738828742806",
+                "1294465532626281",
+                "2802010288851101"
+            ],
+            "messages" : [
+                {
+                    "id" : "2109846149153740",
+                    "sender" : "2802010288851101",
+                    "content" : "That’s fair, though don’t underestimate the negative externalities for small businesses. two in three are near collapse." 
+                },
+                {
+                    "id" : "1228671088320486",
+                    "sender" : "1294465532626281",
+                    "content" : "There are long term health consequences. A complete lock down is warranted given the rising death count."
+                },
+                {
+                    "id" : "1160382144509431",
+                    "sender" : "1104738828742806",
+                    "content" : "I can see both sides. I’m partial to a weighted understanding of the impact on qality of life and total years lost."
+                },
+                {
+                    "id" : "3988506339168466",
+                    "sender" : "3617142990909095",
+                    "content" : "but that’s not how public policy should be made! You have to consider the widespread, long term implications."
+                }
+            ]
         },
         "4540770995500859" : {
             "id" : "4540770995500859",
@@ -107,6 +136,38 @@
             "title" : "Matteo",
             "size" : 15.0,
             "age" : 1
+        }
+    },
+    "users" : {
+        "3617142990909095" : {
+            "id" : "3617142990909095",
+            "name" : "Coby Simler",
+            "last_seen" : "10 min ago",
+            "picture" : "assets/img/profile_01.png"
+        },
+        "1104738828742806" : {
+            "id" : "1104738828742806",
+            "name" : "Michelle Lin",
+            "last_seen" : "an hour ago",
+            "picture" : "assets/img/profile_02.png"
+        },
+        "1294465532626281" : {
+            "id" : "1294465532626281",
+            "name" : "Tamanna Hussain",
+            "last_seen" : "1 min ago",
+            "picture" : "assets/img/profile_02.png"
+        },
+        "2802010288851101" : {
+            "id" : "2802010288851101",
+            "name" : "Matteo Sandrin",
+            "last_seen" : "2 hours ago",
+            "picture" : "assets/img/profile_04.png"
+        },
+        "8724151620443284" : {
+            "id" : "8724151620443284",
+            "name" : "Evelyn Stein",
+            "last_seen" : "seconds ago",
+            "picture" : "assets/img/profile_05.png"
         }
     }
 }
